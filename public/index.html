@@ -5,9 +5,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>QR Kod Yaratish</title>
 <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 40px;
+}
+input {
+  padding: 8px;
+  font-size: 16px;
+  width: 200px;
+}
+button {
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+#qrcode {
+  margin-top: 20px;
+}
+</style>
 </head>
 <body>
-<h2>Matn uchun QR yaratishdfghj</h2>
+
+<h2>Matn uchun QR yaratish</h2>
 <input id="textInput" placeholder="Masalan: Salom">
 <button onclick="generateQR()">QR yaratish</button>
 <div id="qrcode"></div>
@@ -19,6 +41,7 @@ function generateQR() {
 
   document.getElementById("qrcode").innerHTML = "";
 
+  // display.html sahifasiga URL
   const url = `https://qr-kod-ql93.vercel.app/display.html?text=${encodeURIComponent(text)}`;
 
   new QRCode(document.getElementById("qrcode"), {
@@ -28,5 +51,6 @@ function generateQR() {
   });
 }
 </script>
+
 </body>
 </html>
