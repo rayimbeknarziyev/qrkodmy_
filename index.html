@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR Kod Yaratish</title>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+</head>
+<body>
+<h2>Matn uchun QR yaratish</h2>
+<input id="textInput" placeholder="Masalan: Salom">
+<button onclick="generateQR()">QR yaratish</button>
+<div id="qrcode"></div>
+
+<script>
+function generateQR() {
+  const text = document.getElementById("textInput").value.trim();
+  if (!text) return alert("Matn kiriting!");
+
+  document.getElementById("qrcode").innerHTML = "";
+
+  const url = `https://qr-kod-ql93.vercel.app/display.html?text=${encodeURIComponent(text)}`;
+
+  new QRCode(document.getElementById("qrcode"), {
+    text: url,
+    width: 200,
+    height: 200
+  });
+}
+</script>
+</body>
+</html>
